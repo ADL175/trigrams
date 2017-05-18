@@ -2,8 +2,8 @@
 import pytest
 
 TRI_SOURCE_LIST = [
-    ("I", "wish", "I", {("I", "wish"): ["I"]}),
-    ("wish", "I", "may", {("wish", "I"): ["may"]})]
+    ("I", "I wish", "I"),
+    ("wish I", "may")]
 
 
 # NEW_WORD_LIST = [
@@ -19,10 +19,10 @@ def test_trigrams_process_src(n, result):
 # @pytest.mark.parametrize('src_path, int_words, result', TRI_SOURCE)
 # def test_trigrams_select_new_word():
 #     from trigrams import trigrams_select_new_word
-#     assert trigrams_select_new_word(TRI_SOURCE[0], TRI_SOURCE[1]) == 
+#     assert trigrams_select_new_word(TRI_SOURCE[0], TRI_SOURCE[1]) ==
 
 
 # @pytest.mark.parametrize('src_path, int_words, result', TRI_SOURCE)
 # def test_trigrams():
 #     from trigrams import trigrams
-#     assert trigrams(TRI_SOURCE[0], TRI_SOURCE[1]) == 
+#     assert trigrams(TRI_SOURCE[0], TRI_SOURCE[1]) ==
