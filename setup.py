@@ -13,7 +13,7 @@ setup(
     extras_require={'test':['pytest','pytest-watch', 'pytest-cov']},
     entry_points={
         'console_scripts':[
-            "trygrams = trygrams:main"
+            "trigrams = trigrams:main"
             ]
     }
     )

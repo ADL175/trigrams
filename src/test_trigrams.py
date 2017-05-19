@@ -1,29 +1,27 @@
 
 import pytest
 
-# TRI_SOURCE_LIST = [
-#         ["I", "wish", "I", "may"], 
-#         {'I wish': ['I'], 'wish I':['may']}
-#     ]
+TRI_SOURCE_LIST = [
+    ('One night--it', ['was']),
+    ('night--it was', ['on']),
+    ('was on', ['the']),
+    ('on the', ['twentieth']),
+    ('the twentieth', ['of'])
+]
 
 
-# NEW_WORD_LIST = [
-#     (["I", "wish", "I"], {"I", "wish" = "I"})
-#     ]
+# dirpath = os.path.dirname(os.path.abstpath(__file__))
+# source_file = os.path.join(dirpath, 'body_text.txt')
 
-# @pytest.mark.parametrize('n, result', TRI_SOURCE_LIST)
-def test_trigrams_process_src():
-    from trigrams import trigrams_process_src
-    assert trigrams_process_src(["I", "wish", "I", "may"]) == {'I wish': ['I'], 'wish I': ['may']}
+# import pdb; pdb.set_trace()
 
-
-# @pytest.mark.parametrize('src_path, int_words, result', TRI_SOURCE)
-# def test_trigrams_select_new_word():
-#     from trigrams import trigrams_select_new_word
-#     assert trigrams_select_new_word(TRI_SOURCE[0], TRI_SOURCE[1]) ==
+@pytest.mark.parametrize('n, result', TRI_SOURCE_LIST)
+def test_trigrams_build_dict(n, result):
+    from trigrams import trigrams_build_dict
+    assert trigrams_build_dict()[n] == result
 
 
-# @pytest.mark.parametrize('src_path, int_words, result', TRI_SOURCE)
-# def test_trigrams():
-#     from trigrams import trigrams
-#     assert trigrams(TRI_SOURCE[0], TRI_SOURCE[1]) ==
+def test_trigrams_random_int():
+    from trigrams import trigrams_random_int
+    for n in range(1, 100):
+        assert trigrams_random_int(n) in range(n)

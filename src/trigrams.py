@@ -1,12 +1,11 @@
-"""."""
 import random
 import io
 import os
 import sys
 
 
-def main(input_body='body_text.txt', n="21"):
-    """."""
+def main(input_body='body_text.txt', n="200"):
+    """Main calls the other functions and defines word count param."""
     if os.path.isfile(input_body):
         if os.stat(input_body).st_size >= 1:
             tri_dictionary = trigrams_build_dict(input_body)
@@ -21,7 +20,7 @@ def main(input_body='body_text.txt', n="21"):
 
 
 def trigrams_build_dict(input_body='body_text.txt'):
-    """."""
+    """This takes body of text and outputs a dictionary."""
     tri_dictionary = {}
     word_1 = ''
     word_2 = ''
@@ -51,13 +50,13 @@ def trigrams_build_dict(input_body='body_text.txt'):
 
 
 def trigrams_random_int(x):
-    """."""
+    """Generate random integer to later select random value from dict."""
     from random import randint
     return randint(0, x - 1)
 
 
 def trigrams_build_trigram(n, tri_dictionary):
-    """."""
+    """Build body of text from tri_dictionary."""
     rand_dict_keys = random.choice(list(tri_dictionary.keys()))
     split_dict_keys = rand_dict_keys.split()
     word_1 = split_dict_keys[0]
