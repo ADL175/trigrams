@@ -1,5 +1,6 @@
 
 import pytest
+import os
 
 TRI_SOURCE_LIST = [
     ('One night--it', ['was']),
@@ -13,7 +14,7 @@ TRI_SOURCE_LIST = [
 dirpath = os.path.dirname(os.path.abspath(__file__))
 source_file = os.path.join(dirpath, 'body_text.txt')
 
-import pdb; pdb.set_trace()
+# import pdb; pdb.set_trace()
 
 @pytest.mark.parametrize('n, result', TRI_SOURCE_LIST)
 def test_trigrams_build_dict(n, result):
