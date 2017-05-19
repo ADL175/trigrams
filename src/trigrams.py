@@ -4,7 +4,11 @@ import os
 import sys
 
 
-def main(input_body='body_text.txt', n="200"):
+dirpath = os.path.dirname(os.path.abspath(__file__))
+source_file = os.path.join(dirpath, 'body_text.txt')
+
+
+def main(input_body=source_file, n="200"):
     """Main calls the other functions and defines word count param."""
     if os.path.isfile(input_body):
         if os.stat(input_body).st_size >= 1:
@@ -19,7 +23,7 @@ def main(input_body='body_text.txt', n="200"):
         return 'Enter actual .txt file Dude'
 
 
-def trigrams_build_dict(input_body='body_text.txt'):
+def trigrams_build_dict(input_body=source_file):
     """This takes body of text and outputs a dictionary."""
     tri_dictionary = {}
     word_1 = ''
